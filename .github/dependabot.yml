@@ -38,9 +38,18 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "/docker-in-docker/**" # Location of package manifests
+    directory: "/docker-in-docker/docker-network-mode-host" # Location of package manifests
     schedule:
       interval: "daily"
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "/docker-in-docker/docker-with-docker-network" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "/docker-in-docker/sysbox" # Location of package manifests
+    schedule:
+      interval: "daily"
+  
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "/docker-jupyter-path" # Location of package manifests
     schedule:
