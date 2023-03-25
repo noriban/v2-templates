@@ -180,6 +180,8 @@ updates:
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "/pod-with-vnc" # Location of package manifests
     schedule:
+      interval: "daily"
+  
   
 
 
