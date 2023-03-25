@@ -1,26 +1,28 @@
-name: Automatic Rebase
+name: Rebase Pull Request
+
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    types: [labeled]
+
 jobs:
-  rebase:
+  main:
+    if: ${{ github.event.label.name == 'rebase' }}
     name: Rebase
     runs-on: ubuntu-latest
-    if: >-
-      github.event.issue.pull_request != '' && 
-      (
-        contains(github.event.comment.body, '/rebase') || 
-        contains(github.event.comment.body, '/autosquash')
-      )
     steps:
-      - name: Checkout the latest code
+      - name: git checkout
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
-      - name: Automatic Rebase
+          fetch-depth: 0
+
+      - name: automatic rebase
         uses: cirrus-actions/rebase@1.7
-        with:
-          autosquash: ${{ contains(github.event.comment.body, '/autosquash') || contains(github.event.comment.body, '/rebase-autosquash') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: remove label
+        if: always()
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: rebase
