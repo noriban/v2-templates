@@ -151,7 +151,15 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "/pod-with-docker" # Location of package manifests
+    directory: "/pod-with-docker/kubernetes-tf-provider" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "/pod-with-docker/pod-side-car-pgadmin" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "/pod-with-docker/pod-with-side-car" # Location of package manifests
     schedule:
       interval: "daily"
   - package-ecosystem: "terraform" # See documentation for possible values
