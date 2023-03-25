@@ -6,6 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "/*/*" # Location of package manifests
+    directory: "/v2-templates/*/" # Location of package manifests
     schedule:
       interval: "daily"
+
