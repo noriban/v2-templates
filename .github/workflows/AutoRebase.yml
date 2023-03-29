@@ -6,7 +6,7 @@ on:
 
 jobs:
   main:
-    if: ${{ github.event.label.name == 'rebase' }}
+    if: ${{ github.event.label.name == 'dependencies' }}
     name: Rebase
     runs-on: ubuntu-latest
     steps:
